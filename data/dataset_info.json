@@ -458,5 +458,34 @@
       "prompt": "content"
     },
     "folder": "python"
+  },
+  "dolly_ja": {
+    "hf_hub_url": "kunishou/databricks-dolly-15k-ja",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "ichikara": {
+    "hf_hub_url": ["p1atdev/ichikara-instruction","20231221-003"],
+    "columns": {
+      "prompt": "text",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "oasst_21k_ja": {
+    "hf_hub_url": "llm-jp/oasst1-21k-ja",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
   }
 }

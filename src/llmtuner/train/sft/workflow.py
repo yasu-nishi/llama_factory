@@ -19,7 +19,6 @@ if TYPE_CHECKING:
 
     from ...hparams import DataArguments, FinetuningArguments, GeneratingArguments, ModelArguments
 
-
 def run_sft(
     model_args: "ModelArguments",
     data_args: "DataArguments",
@@ -67,6 +66,18 @@ def run_sft(
     gen_kwargs["eos_token_id"] = [tokenizer.eos_token_id] + tokenizer.additional_special_tokens_ids
     gen_kwargs["pad_token_id"] = tokenizer.pad_token_id
     gen_kwargs["logits_processor"] = get_logits_processor()
+
+    from torch.utils.data import DataLoader
+    loader = DataLoader(trainer.train_dataset, collate_fn=data_collator, batch_size=2)
+
+    batch = next(iter(loader))
+    print(batch['labels'][0])
+    print(batch['input_ids'][0])
+    print(tokenizer.decode(batch['input_ids'][0]))
+
+    print(batch['labels'][1])
+    print(batch['input_ids'][1])
+    print(tokenizer.decode(batch['input_ids'][1]))
 
     # Training
     if training_args.do_train:

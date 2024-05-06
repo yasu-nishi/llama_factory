@@ -687,6 +687,15 @@ _register_template(
     ),
 )
 
+_register_template(
+    name="llama2_ja",
+    format_user=StringFormatter(slots=[{"bos_token"}, "[INST] {{content}} [/INST]"]),
+    format_system=StringFormatter(slots=["<<SYS>>\n{{content}}\n<</SYS>>\n\n"]),
+    default_system=(
+        "以下の指示に答えて下さい。"
+    ),
+)
+
 
 _register_template(
     name="llama2_zh",
