@@ -468,14 +468,14 @@
     }
   },
   "ichikara": {
-    "hf_hub_url": ["p1atdev/ichikara-instruction","20231221-003"],
+    "hf_hub_url": "p1atdev/ichikara-instruction",
+    "subset": "20231221-003",
     "columns": {
       "prompt": "text",
-      "query": "input",
       "response": "output"
     }
   },
-  "oasst_21k_ja": {
+  "oasst1_21k_ja": {
     "hf_hub_url": "llm-jp/oasst1-21k-ja",
     "formatting": "sharegpt",
     "columns": {
@@ -486,6 +486,45 @@
       "content_tag": "value",
       "user_tag": "human",
       "assistant_tag": "gpt"
+    }
+  },
+  "oasst1_21k_en": {
+    "hf_hub_url": "llm-jp/oasst1-21k-en",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "oasst2_33k_ja": {
+    "hf_hub_url": "llm-jp/oasst2-33k-ja",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
+  "oasst2_33k_en": {
+    "hf_hub_url": "llm-jp/oasst2-33k-en",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
     }
   }
 }
