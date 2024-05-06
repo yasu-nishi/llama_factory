@@ -460,10 +460,9 @@
     "folder": "python"
   },
   "dolly_ja": {
-    "hf_hub_url": "kunishou/databricks-dolly-15k-ja",
+    "hf_hub_url": "Yasusan/databricks-dolly-15k-ja",
     "columns": {
       "prompt": "instruction",
-      "query": "input",
       "response": "output"
     }
   },
