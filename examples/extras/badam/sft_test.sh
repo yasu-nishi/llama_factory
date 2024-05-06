@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python ../../../train.py \
+python ../../../src/train.py \
     --stage sft \
     --do_train \
     --model_name_or_path kawagoshi-llm-team/12B_step2000 \
@@ -15,7 +15,7 @@ python ../../../train.py \
     --output_dir ../../../sft \
     --overwrite_cache \
     --overwrite_output_dir \
-    --cutoff_len 2048 \
+    --cutoff_len 1024 \
     --preprocessing_num_workers 16 \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 1 \
@@ -33,6 +33,7 @@ python ../../../train.py \
     --val_size 0.1 \
     --plot_loss \
     --pure_bf16 \
+    --optim paged_adamw_8bit \
     --export_hub_model_id Yasusan/llama3-ja-sft-badam    ## the Hugging Face hub ID to upload model
 
 #max_samples #For debugging purposes, truncate the number of examples for each dataset
