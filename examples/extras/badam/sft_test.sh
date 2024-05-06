@@ -11,7 +11,6 @@ python ../../../src/train.py \
     --use_badam \
     --badam_switch_mode descending \
     --badam_switch_interval 50 \
-    --badam_verbose 2 \
     --output_dir ../../../sft \
     --overwrite_cache \
     --overwrite_output_dir \
@@ -37,3 +36,4 @@ python ../../../src/train.py \
 #max_samples #For debugging purposes, truncate the number of examples for each dataset
 #optim paged_adamw_8bit \
 #--template llama2_ja \
+#--badam_verbose 2 \
