@@ -5,7 +5,7 @@ python ../../../src/train.py \
     --stage sft \
     --do_train \
     --model_name_or_path meta-llama/Meta-Llama-3-8B \
-    --dataset oasst2_33k_ja,oasst1_21k_ja,ichikara,oasst2_33k_en,dolly_ja \
+    --dataset oasst2_33k_ja,oasst1_21k_ja,ichikara,oasst2_33k_en,dolly_ja,answercarefully \
     --dataset_dir ../../../data \
     --template llama3_ja \
     --finetuning_type full \

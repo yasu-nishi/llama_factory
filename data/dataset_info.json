@@ -474,6 +474,13 @@
       "response": "output"
     }
   },
+  "answercarefully": {
+    "hf_hub_url": "Yasusan/answercarefully",
+    "columns": {
+      "prompt": "text",
+      "response": "output"
+    }
+  },
   "oasst1_21k_ja": {
     "hf_hub_url": "llm-jp/oasst1-21k-ja",
     "formatting": "sharegpt",
