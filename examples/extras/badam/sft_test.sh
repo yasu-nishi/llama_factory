@@ -3,10 +3,10 @@
 python ../../../src/train.py \
     --stage sft \
     --do_train \
-    --model_name_or_path kawagoshi-llm-team/12B_step2000 \
+    --model_name_or_path meta-llama/Meta-Llama-3-8B \
     --dataset oasst2_33k_ja,oasst1_21k_ja,ichikara,oasst2_33k_en,dolly_ja \
     --dataset_dir ../../../data \
-    --template llama2_ja \
+    --template llama3_ja \
     --finetuning_type full \
     --use_badam \
     --badam_switch_mode descending \
@@ -29,11 +29,11 @@ python ../../../src/train.py \
     --load_best_model_at_end \
     --learning_rate 5e-5 \
     --num_train_epochs 1.0 \
-    --max_samples 100 \
     --val_size 0.1 \
     --plot_loss \
     --pure_bf16 \
-    --optim paged_adamw_8bit \
     --export_hub_model_id Yasusan/llama3-ja-sft-badam    ## the Hugging Face hub ID to upload model
 
 #max_samples #For debugging purposes, truncate the number of examples for each dataset
+#optim paged_adamw_8bit \
+#--template llama2_ja \
