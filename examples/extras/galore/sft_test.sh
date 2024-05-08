@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 python ../../../src/train.py \
     --stage sft \
@@ -9,34 +8,29 @@ python ../../../src/train.py \
     --dataset_dir ../../../data \
     --template llama3_ja \
     --finetuning_type full \
-    --use_badam \
-    --badam_switch_mode descending \ #random
-    --badam_switch_interval 50 \
-    --badam_mode ratio \
-    --badam_update_ratio 0.1 \
-    --output_dir /content/drive/MyDrive/GENIAC/llama3_8B \
+    --use_galore \
+    --galore_layerwise \
+    --galore_target mlp,self_attn \
+    --galore_rank 128 \
+    --galore_scale 2.0 \
+    --output_dir /content/drive/MyDrive/GENIAC/llama3_8B_galore \
     --overwrite_cache \
     --overwrite_output_dir \
     --cutoff_len 1536 \
     --preprocessing_num_workers 16 \
     --per_device_train_batch_size 1 \
-    --gradient_accumulation_steps 8 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 1 \
     --lr_scheduler_type cosine \
     --logging_steps 10 \
     --warmup_steps 20 \
-    --save_steps 5000 \
-    --max_samples 5000 \
+    --load_best_model_at_end \
     --learning_rate 5e-5 \
     --num_train_epochs 1.0 \
-    --val_size 0.1 \
+    --max_samples 5000 \
     --plot_loss \
-    --badam_verbose 2 \
+    --pure_bf16 \
     --flash_attn fa2 \
     --gradient_checkpointing \
-    --export_hub_model_id Yasusan/llama3-ja-sft-badam    ## the Hugging Face hub ID to upload model
+    --export_hub_model_id Yasusan/llama3-ja-sft-galore   ## the Hugging Face hub ID to upload model
 
-#max_samples #For debugging purposes, truncate the number of examples for each dataset
-#optim paged_adamw_8bit \
-#--template llama2_ja \
-#--badam_verbose 2 \
-#--pure_bf16 \
