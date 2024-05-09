@@ -687,6 +687,7 @@ _register_template(
     ),
 )
 
+"""
 _register_template(
     name="llama2_ja",
     format_user=StringFormatter(slots=[{"bos_token"}, "[INST] {{content}} [/INST]"]),
@@ -695,7 +696,18 @@ _register_template(
         "以下の指示に答えて下さい。"
     ),
 )
+"""
 
+_register_template(
+    name="llama2_ja",
+    format_user=StringFormatter(slots=[{"bos_token"}, "\n\n### 入力:{{content}}\n\n### 応答:\n"]),
+    format_system=StringFormatter(
+        slots=[{"bos_token"}, "system{{content}}>"]
+        ),
+    default_system=(
+        "以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。\n\n### 指示:\n"
+    ),
+)
 
 _register_template(
     name="llama2_zh",
@@ -731,6 +743,7 @@ _register_template(
     replace_eos=True,
 )
 
+"""
 _register_template(
     name="llama3_ja",
     format_user=StringFormatter(
@@ -756,7 +769,7 @@ _register_template(
     stop_words=["<|eot_id|>"],
     replace_eos=True,
 )
-
+"""
 
 _register_template(
     name="mistral",
