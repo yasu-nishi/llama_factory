@@ -68,17 +68,13 @@ def run_sft(
     gen_kwargs["logits_processor"] = get_logits_processor()
 
     from torch.utils.data import DataLoader
-    loader = DataLoader(trainer.train_dataset, collate_fn=data_collator, batch_size=2)
+    loader = DataLoader(trainer.train_dataset, collate_fn=data_collator, batch_size=16)
 
     batch = next(iter(loader))
-    print(batch['labels'][0])
-    print(batch['input_ids'][0])
-    print(tokenizer.decode(batch['input_ids'][0]))
-
-    print(batch['labels'][1])
-    print(batch['input_ids'][1])
-    print(tokenizer.decode(batch['input_ids'][1]))
-
+    for i in range(16):
+        print(batch['labels'][i])
+        print(batch['input_ids'][i])
+        print(tokenizer.decode(batch['input_ids'][i]))
     # Training
     if training_args.do_train:
         train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
